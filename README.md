@@ -6,13 +6,13 @@ for basic logging to files.
 ## Install
 
 ```sh
-pip install better-file-logger
+pip install simple-file-logger
 ```
 
 ## Usage
 
 ```py
-from better_file_logger import Logger
+from simple_file_logger import Logger
 
 logger = Logger("my_log_file", "path/to/log/directory")
 logger.info("Hello!")
