@@ -1,4 +1,4 @@
-# Better File Logger
+# Simple File Logger
 
 This python package provides a `Logger` class which is easy to use
 for basic logging to files.
