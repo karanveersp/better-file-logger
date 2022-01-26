@@ -33,7 +33,7 @@ class Logger:
             self.process = process if process else ""
             return
 
-        if logfile_name and log_dir:
+        if logfile_name and log_dir and not is_console_only:
             # append timestamp and extension to file
             if logfile_name != "test" and add_timestamp_to_filename:
                 logfile_name += "_" + datetime.now().strftime("%Y%m%d_%H%M_%S")
@@ -60,15 +60,13 @@ class Logger:
             handler.setFormatter(formatter)
             logger.addHandler(handler)
         else:
-            is_console_only = True
             logger = logging.getLogger()
             logger.setLevel(level)
             self.log_file_path = None
 
-        if is_console_only:
-            console_handler = logging.StreamHandler()
-            console_handler.setFormatter(formatter)
-            logger.addHandler(console_handler)
+        console_handler = logging.StreamHandler()
+        console_handler.setFormatter(formatter)
+        logger.addHandler(console_handler)
 
         self._logger = logger
         self.process = process if process else ""
