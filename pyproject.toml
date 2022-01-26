@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "better_file_logger"
-version = "0.1.0"
+version = "0.1.1"
 description = "A simple logger class to log to files"
 authors = ["Karanveer Singh <karan_4496@hotmail.com>"]
 

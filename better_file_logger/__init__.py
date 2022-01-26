@@ -1,3 +1,3 @@
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
-from . import Logger
+from .better_logger import Logger
