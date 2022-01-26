@@ -47,6 +47,7 @@ class Logger:
             self.log_file_path = log_path
 
             logger = logging.getLogger(logfile_name)  # create logging instance
+            logger.setLevel(level)
 
             if is_rolling_handler:
                 handler = logging.handlers.RotatingFileHandler(
