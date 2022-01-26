@@ -1,4 +1,4 @@
-from better_logger import __version__
+from better_file_logger import __version__
 
 
 def test_version():
