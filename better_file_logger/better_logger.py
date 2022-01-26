@@ -3,7 +3,7 @@ import logging
 import logging.handlers
 from pathlib import Path
 import pathlib
-from pprint import pprint
+from pprint import pformat
 import shutil
 from typing import Union
 
@@ -78,7 +78,7 @@ class Logger:
         if self.process:
             message = self.process + " - " + message
         if data:
-            message += "\n" + pprint.pformat(data, width=200) + "\n"
+            message += "\n" + pformat(data, width=200) + "\n"
         return message
 
     def info(self, message: str, data=None):
