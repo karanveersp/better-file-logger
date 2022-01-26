@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "better_logger"
+version = "0.1.0"
+description = "A simple logging class with customization to log to files"
+authors = ["Karanveer Singh <karan_4496@hotmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
