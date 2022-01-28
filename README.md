@@ -29,13 +29,13 @@ log_dir: Union[Path, str, None]=None,
 level=logging.DEBUG,
 mode="w",
 add_timestamp_to_filename=True,
-is_console_only=False,
+log_to_console=False,
 is_null_handler=False,
 is_rolling_handler=False,
 process: str = None,
 ```
 
-- To create a console-only handler, pass an empty string for the first argument, and set `is_console_only` to `True`.
+- To disable to console in addition to the file (default behavior), pass `log_to_console=False`.
 - The `is_rolling_handler` parameter controls whether the logger automatically writes to a new file when the existing one becomes larger than `5mb`. It will archive the current log with a serial number and transition to a new file automatically. The limit of archived files is `5` so the oldest one will get deleted when archiving for the 6th time.
 - The `is_null_handler` parameter initializes a logger that does nothing. This is useful for unit testing libraries where functions log messages but you don't want any actual logging to take place.
 - The `process` parameter is a little addition to provide some info about what process the currently running script represents. It can be any arbitrary string, such as `downloading_data` or `monitoring_files` etc. This process will also appear on each log line. As the script executes, you can set the `process` in the logger object to a new value. This is helpful for producing files which facilitate easy line extraction related to a specific process when the file is big.

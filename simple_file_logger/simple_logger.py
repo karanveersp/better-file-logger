@@ -12,11 +12,11 @@ class Logger:
     def __init__(
         self,
         logfile_name: str,
-        log_dir: Union[Path, str, None]=None,
+        log_dir: Union[Path, str, None] = None,
         level=logging.DEBUG,
         mode="w",
         add_timestamp_to_filename=True,
-        is_console_only=False,
+        log_to_console=True,
         is_null_handler=False,
         is_rolling_handler=False,
         process: str = None,
@@ -33,7 +33,7 @@ class Logger:
             self.process = process if process else ""
             return
 
-        if logfile_name and log_dir and not is_console_only:
+        if logfile_name and log_dir:
             # append timestamp and extension to file
             if logfile_name != "test" and add_timestamp_to_filename:
                 logfile_name += "_" + datetime.now().strftime("%Y%m%d_%H%M_%S")
@@ -64,9 +64,10 @@ class Logger:
             logger.setLevel(level)
             self.log_file_path = None
 
-        console_handler = logging.StreamHandler()
-        console_handler.setFormatter(formatter)
-        logger.addHandler(console_handler)
+        if log_to_console:
+            console_handler = logging.StreamHandler()
+            console_handler.setFormatter(formatter)
+            logger.addHandler(console_handler)
 
         self._logger = logger
         self.process = process if process else ""
